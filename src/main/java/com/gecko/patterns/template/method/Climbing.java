@@ -1,4 +1,4 @@
-package com.gecko.activity;
+package com.gecko.patterns.template.method;
 
 /**
  * Created by hlieu on 11/13/16.

@@ -2,6 +2,11 @@ package com.gecko.pass.by.value;
 
 /**
  * Created by hlieu on 11/13/16.
+ *
+ * An example of java's pass by reference is actually done as
+ * pass by value.
+ *
+ *
  */
 public class PassByValueExample {
     private int x;
@@ -12,14 +17,23 @@ public class PassByValueExample {
         this.y = y;
     }
 
+    /**
+     * In this swap, we change the value of X's x and y, and then
+     * <em>attempt</em> to swap X and Y so that
+     * X now points to Y and Y points to X.
+     *
+     * We should see that after swap ends, X is still pointing to X
+     * and Y is still pointing to Y
+     * @param X
+     * @param Y
+     */
+    public static void swap(PassByValueExample X, PassByValueExample Y) {
+        X.x = 100;
+        X.y = 100;
 
-    public static void swap(PassByValueExample x, PassByValueExample y) {
-        x.x = 100;
-        x.y = 100;
-
-        PassByValueExample tmp = x;
-        x = y;   // set x to point to y
-        y = tmp;   // set y to point to tmp
+        PassByValueExample tmp = X;
+        X = Y;     // set X to point to Y
+        Y = tmp;   // set Y to point to X (ie tmp)
     }
 
     public static void delete(PassByValueExample g) {
@@ -32,17 +46,22 @@ public class PassByValueExample {
         PassByValueExample x = new PassByValueExample(0, 0);
         PassByValueExample y = new PassByValueExample(0, 0);
 
-        System.out.println("X: " + x.x + " Y: " + x.y);
-        System.out.println("X: " + y.x + " Y: " + y.y);
-
+        System.out.println("X.x: " + x.x + " X.y: " + x.y);
+        System.out.println("Y.x: " + y.x + " Y.y: " + y.y);
+        System.out.println ("\nNow we increment change X and attempt to swap X and Y, and we find");
         swap(x, y);
 
-        System.out.println("after swapping, x.X: " + x.x + " x.Y: " + x.y);
-        System.out.println("after swapping, but before deleting y, y.X: " + y.x + " y.Y: " + y.y);
+        System.out.println("X.x: " + x.x + " X.y: " + x.y);
+        System.out.println("Y.x: " + y.x + " Y.y: " + y.y);
+        System.out.println ("So the swap did not happen");
+
+        System.out.println ("\nNow we increment Y and attempt to delete Y, and we find");
 
         delete(y);
+        System.out.println("Y.x: " + y.x + " Y.y: " + y.y);
+        System.out.println ("The delete failed also.");
 
-        System.out.println("After deleting y, y.X: " + y.x + " y.Y: " + y.y);
-
+        System.out.println ("\nConclusion: Java pass by reference of objects is actually");
+        System.out.println ("Pass by Value of the address, and after the method ends, the object still exists");
     }
 }
