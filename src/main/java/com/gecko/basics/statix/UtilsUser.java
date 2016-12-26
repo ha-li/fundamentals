@@ -8,5 +8,10 @@ public class UtilsUser {
 
       // this is not possible
       //Utils util = new Utils();
+      Utils.doSomeUtility ();
+      Utils.doSomeOtherUtility ();
+      boolean d = true;
+      
+
    }
 }

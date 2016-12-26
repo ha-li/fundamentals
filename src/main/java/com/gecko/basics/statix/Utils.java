@@ -14,10 +14,13 @@ public final class Utils {
    // this is legal, but pointless, in fact we can have multiple utils
    private static Utils utils = new Utils();
    private static Utils utils2 = new Utils ();
+   private static final int I = 100;
 
    // we do not ever want to instantiate this class, just call it
    private Utils (){}
 
-   public static void doSomeUtility () {}
+   public static void doSomeUtility () {
+
+   }
    public static void doSomeOtherUtility () {}
 }
