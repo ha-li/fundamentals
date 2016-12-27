@@ -74,5 +74,7 @@ public class Outer {
       //InnerStatic innerStatic2 = out.new InnerStatic ();
       System.out.println (innerStatic.getOuterStaticMember());
       System.out.println (innerStatic.privateStaticMethod ());
+      innerStatic = null;
+      innerStatic.getOuterStaticMember();
    }
 }

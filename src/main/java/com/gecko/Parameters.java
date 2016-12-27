@@ -63,7 +63,7 @@ public final class Parameters {
       assertTrue (leftVal == rightVal, message);
    }
 
-   
+
    /**
     * Private constructor to prevent unnecessary instantiation.
     */
