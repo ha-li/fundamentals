@@ -14,6 +14,8 @@ public class Outer {
       outer_s = s;
    }
 
+   // this is a change
+
    // private means private outside of this class and file,
    // so even though this is a private method, inside this file, we can
    // still call it
